@@ -195,11 +195,63 @@
       <div id="successMessage" class="hidden text-center mt-8 p-6 bg-green-900/30 border border-green-500 rounded-2xl">
         <p class="text-green-400 text-lg font-medium">✅ Thank you! I'll get back to you soon.</p>
       </div>
-      <p class="text-center text-zinc-400 mt-8">
-        Or email me directly: <a href="mailto:roquedesouza209@gmail.com" class="text-cyan-400 hover:underline font-medium">roquedesouza209@gmail.com</a>
-      </p>
+
+      <!-- Contact Button -->
+      <div class="text-center mt-10">
+        <button id="openContactModal" class="inline-flex items-center gap-2 bg-emerald-100 hover:bg-emerald-200 text-emerald-700 font-medium px-6 py-3 rounded-full transition shadow-sm">
+          <i class="fas fa-envelope"></i>
+          Contact
+        </button>
+      </div>
     </div>
   </section>
+
+  <!-- Contact Modal -->
+  <div id="contactModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full overflow-hidden">
+      <div class="p-6 text-center border-b border-gray-100">
+        <h3 class="text-xl font-bold text-gray-900">Roque Desouza</h3>
+        <p class="text-sm text-gray-500 mt-1">Founder · Visualixe</p>
+      </div>
+      <div class="p-6 space-y-5">
+        <!-- Email -->
+        <a href="mailto:roquedesouza209@gmail.com" class="flex items-start gap-4 group">
+          <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-envelope text-emerald-600"></i>
+          </div>
+          <div class="text-left">
+            <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Email</p>
+            <p class="text-emerald-600 group-hover:underline font-medium">roquedesouza209@gmail.com</p>
+          </div>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/roque-desouza" target="_blank" class="flex items-start gap-4 group">
+          <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+            <i class="fab fa-linkedin-in text-emerald-600"></i>
+          </div>
+          <div class="text-left">
+            <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">LinkedIn</p>
+            <p class="text-emerald-600 group-hover:underline font-medium">linkedin.com/in/roque-desouza</p>
+          </div>
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/visualixe_foundation" target="_blank" class="flex items-start gap-4 group">
+          <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+            <i class="fab fa-instagram text-emerald-600"></i>
+          </div>
+          <div class="text-left">
+            <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Instagram</p>
+            <p class="text-emerald-600 group-hover:underline font-medium">@visualixe_foundation</p>
+          </div>
+        </a>
+      </div>
+      <div class="border-t border-gray-100 p-4">
+        <button id="closeContactModal" class="w-full text-emerald-600 font-medium py-2 hover:bg-emerald-50 rounded-xl transition">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="bg-black py-12 border-t border-zinc-800">
@@ -232,6 +284,29 @@
         document.getElementById('contactForm').classList.remove('hidden');
         document.getElementById('successMessage').classList.add('hidden');
       }, 5000);
+    });
+
+    // Contact Modal
+    const contactModal = document.getElementById('contactModal');
+    const openContactBtn = document.getElementById('openContactModal');
+    const closeContactBtn = document.getElementById('closeContactModal');
+
+    openContactBtn.addEventListener('click', () => {
+      contactModal.classList.remove('hidden');
+      contactModal.classList.add('flex');
+    });
+
+    closeContactBtn.addEventListener('click', () => {
+      contactModal.classList.add('hidden');
+      contactModal.classList.remove('flex');
+    });
+
+    // Close modal when clicking outside
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) {
+        contactModal.classList.add('hidden');
+        contactModal.classList.remove('flex');
+      }
     });
   </script>
 </body>

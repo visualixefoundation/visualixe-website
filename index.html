@@ -175,26 +175,30 @@
         <h2 class="text-5xl font-bold mb-4">Ready to solve a problem together?</h2>
         <p class="text-xl text-zinc-300">Send me a message and I'll reply within 24 hours.</p>
       </div>
-      <form id="contactForm" class="space-y-6 bg-zinc-800/70 backdrop-blur p-10 rounded-3xl">
+
+      <form action="https://formsubmit.co/roquedesouza209@gmail.com" method="POST" class="space-y-6 bg-zinc-800/70 backdrop-blur p-10 rounded-3xl">
+        <!-- FormSubmit settings -->
+        <input type="hidden" name="_subject" value="New message from Visualixe website">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://visualixe-foundation.vercel.app/#contact">
+
         <div>
           <label class="block text-sm mb-2 font-medium">Your Name</label>
-          <input type="text" id="name" required class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4 focus:outline-none focus:border-cyan-400">
+          <input type="text" name="name" required class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4 focus:outline-none focus:border-cyan-400">
         </div>
         <div>
           <label class="block text-sm mb-2 font-medium">Email Address</label>
-          <input type="email" id="email" required class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4 focus:outline-none focus:border-cyan-400">
+          <input type="email" name="email" required class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4 focus:outline-none focus:border-cyan-400">
         </div>
         <div>
           <label class="block text-sm mb-2 font-medium">Project / Message</label>
-          <textarea id="message" rows="6" required class="w-full bg-zinc-900 border border-zinc-700 rounded-3xl px-6 py-4 focus:outline-none focus:border-cyan-400"></textarea>
+          <textarea name="message" rows="6" required class="w-full bg-zinc-900 border border-zinc-700 rounded-3xl px-6 py-4 focus:outline-none focus:border-cyan-400"></textarea>
         </div>
         <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-semibold text-lg py-5 rounded-2xl transition">
           Send Message
         </button>
       </form>
-      <div id="successMessage" class="hidden text-center mt-8 p-6 bg-green-900/30 border border-green-500 rounded-2xl">
-        <p class="text-green-400 text-lg font-medium">✅ Thank you! I'll get back to you soon.</p>
-      </div>
 
       <!-- Contact Button -->
       <div class="text-center mt-10">
@@ -271,19 +275,6 @@
       const icon = mobileBtn.querySelector('i');
       icon.classList.toggle('fa-bars');
       icon.classList.toggle('fa-times');
-    });
-
-    // Contact Form
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      document.getElementById('successMessage').classList.remove('hidden');
-      document.getElementById('contactForm').classList.add('hidden');
-     
-      setTimeout(() => {
-        this.reset();
-        document.getElementById('contactForm').classList.remove('hidden');
-        document.getElementById('successMessage').classList.add('hidden');
-      }, 5000);
     });
 
     // Contact Modal

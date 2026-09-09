@@ -4,6 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visualixe | Think. Create. Innovate.</title>
+  <meta name="description" content="Visualixe Foundation builds practical digital solutions that simplify daily life, education, productivity, and collaboration.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="visualixe.png">
+  <link rel="apple-touch-icon" href="visualixe.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://visualixe-foundation.vercel.app/">
+  <meta property="og:title" content="Visualixe | Think. Create. Innovate.">
+  <meta property="og:description" content="We build practical digital solutions that simplify daily life, education, productivity, and collaboration.">
+  <meta property="og:image" content="https://visualixe-foundation.vercel.app/visualixe.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Visualixe | Think. Create. Innovate.">
+  <meta name="twitter:description" content="We build practical digital solutions that simplify daily life, education, productivity, and collaboration.">
+  <meta name="twitter:image" content="https://visualixe-foundation.vercel.app/visualixe.png">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
@@ -34,7 +53,7 @@
       <a href="#contact" class="hidden md:block bg-cyan-500 hover:bg-cyan-600 px-6 py-2.5 rounded-full font-medium transition">Start a Project</a>
 
       <!-- Mobile Menu Button -->
-      <button id="mobileMenuBtn" class="md:hidden text-3xl">
+      <button id="mobileMenuBtn" class="md:hidden text-3xl" aria-label="Toggle menu">
         <i class="fas fa-bars"></i>
       </button>
     </div>
@@ -42,11 +61,11 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden md:hidden bg-zinc-950 border-t border-zinc-800 py-6">
       <div class="flex flex-col gap-6 px-6 text-lg">
-        <a href="#services" class="hover:text-cyan-400">Services</a>
-        <a href="#published" class="hover:text-cyan-400">Published</a>
-        <a href="#about" class="hover:text-cyan-400">About</a>
-        <a href="#contact" class="hover:text-cyan-400">Contact</a>
-        <a href="#contact" class="bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-full font-medium text-center mt-4">Start a Project</a>
+        <a href="#services" class="mobile-nav-link hover:text-cyan-400">Services</a>
+        <a href="#published" class="mobile-nav-link hover:text-cyan-400">Published</a>
+        <a href="#about" class="mobile-nav-link hover:text-cyan-400">About</a>
+        <a href="#contact" class="mobile-nav-link hover:text-cyan-400">Contact</a>
+        <a href="#contact" class="mobile-nav-link bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-full font-medium text-center mt-4">Start a Project</a>
       </div>
     </div>
   </nav>
@@ -61,7 +80,8 @@
         <p class="text-xl text-zinc-400 max-w-lg">
           We build practical digital solutions that simplify daily life, education, productivity, and collaboration.
         </p>
-        <div class="flex gap-4">
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="bg-cyan-500 hover:bg-cyan-400 text-black px-8 py-4 rounded-full font-semibold text-lg transition">Start a Project</a>
           <a href="#published" class="border border-cyan-400 text-cyan-400 px-8 py-4 rounded-full font-semibold text-lg hover:bg-cyan-400 hover:text-black transition">View Published Work</a>
         </div>
       </div>
@@ -136,7 +156,7 @@
           <div class="text-emerald-400 mb-2 text-sm font-medium">ENVIRONMENTAL MOVEMENT</div>
           <h3 class="text-2xl font-semibold mb-3">Kijani Pulse Foundation</h3>
           <p class="text-zinc-400 mb-6">Student-led environmental movement at St. Joseph Boys Science High School, Kilimanjaro.</p>
-          <a href="https://kijanipulsefoundation.vercel.app/" target="_blank"
+          <a href="https://kijanipulsefoundation.vercel.app/" target="_blank" rel="noopener noreferrer"
              class="inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-2xl font-medium transition">
             Visit Live Website <i class="fas fa-external-link-alt"></i>
           </a>
@@ -145,7 +165,7 @@
           <div class="text-amber-400 mb-2 text-sm font-medium">PRODUCTIVITY TOOL</div>
           <h3 class="text-2xl font-semibold mb-3">Playlist Manifest</h3>
           <p class="text-zinc-400 mb-6">Catalog any YouTube playlist into a clean, downloadable track list — metadata only, no files downloaded.</p>
-          <a href="https://playlist-manifest.vercel.app" target="_blank"
+          <a href="https://playlist-manifest.vercel.app/" target="_blank" rel="noopener noreferrer"
              class="inline-flex items-center gap-3 bg-amber-600 hover:bg-amber-700 px-6 py-3 rounded-2xl font-medium transition">
             Visit Live Website <i class="fas fa-external-link-alt"></i>
           </a>
@@ -154,7 +174,7 @@
           <div class="text-blue-400 mb-2 text-sm font-medium">EDUCATION DIRECTORY</div>
           <h3 class="text-2xl font-semibold mb-3">Accepted Students</h3>
           <p class="text-zinc-400 mb-6">Discover students accepted into competitive summer programs and international high schools.</p>
-          <a href="https://accepted-students.vercel.app" target="_blank"
+          <a href="https://accepted-students.vercel.app/" target="_blank" rel="noopener noreferrer"
              class="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-2xl font-medium transition">
             Visit Live Website <i class="fas fa-external-link-alt"></i>
           </a>
@@ -178,7 +198,7 @@
   <section id="contact" class="py-24 bg-gradient-to-br from-cyan-900 to-zinc-900">
     <div class="max-w-2xl mx-auto px-6 text-center">
       <h2 class="text-4xl md:text-5xl font-bold mb-4">Let’s build something</h2>
-      <p class="text-xl text-zinc-300 mb-10">Reach out via LinkedIn or Instagram</p>
+      <p class="text-xl text-zinc-300 mb-10">Reach out via email, LinkedIn, or Instagram</p>
       <button id="openContactModal" class="inline-flex items-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-10 py-5 rounded-full transition shadow-lg text-lg">
         <i class="fas fa-envelope"></i>
         Contact
@@ -194,8 +214,18 @@
         <p class="text-sm text-gray-500 mt-1">Founder · Visualixe</p>
       </div>
       <div class="p-6 space-y-5">
+        <!-- Email -->
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=visualixefoundation@gmail.com" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 group">
+          <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-envelope text-emerald-600"></i>
+          </div>
+          <div class="text-left">
+            <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Email</p>
+            <p class="text-emerald-600 group-hover:underline font-medium">visualixefoundation@gmail.com</p>
+          </div>
+        </a>
         <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/roque-desouza" target="_blank" class="flex items-start gap-4 group">
+        <a href="https://www.linkedin.com/in/roque-desouza" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 group">
           <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
             <i class="fab fa-linkedin-in text-emerald-600"></i>
           </div>
@@ -205,7 +235,7 @@
           </div>
         </a>
         <!-- Instagram -->
-        <a href="https://www.instagram.com/visualixe_foundation" target="_blank" class="flex items-start gap-4 group">
+        <a href="https://www.instagram.com/visualixe_foundation" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 group">
           <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
             <i class="fab fa-instagram text-emerald-600"></i>
           </div>
@@ -235,12 +265,26 @@
     // Mobile Menu Toggle
     const mobileBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      const icon = mobileBtn.querySelector('i');
+      icon.classList.add('fa-bars');
+      icon.classList.remove('fa-times');
+    }
+
     mobileBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
       const icon = mobileBtn.querySelector('i');
       icon.classList.toggle('fa-bars');
       icon.classList.toggle('fa-times');
+    });
+
+    // Auto-close mobile menu when a nav link is tapped
+    document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        closeMobileMenu();
+      });
     });
 
     // Contact Modal

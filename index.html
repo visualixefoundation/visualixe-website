@@ -50,7 +50,7 @@
         <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
       </div>
 
-      <a href="#contact" class="hidden md:block bg-cyan-500 hover:bg-cyan-600 px-6 py-2.5 rounded-full font-medium transition">Start a Project</a>
+      <button type="button" class="open-contact-modal hidden md:block bg-cyan-500 hover:bg-cyan-600 px-6 py-2.5 rounded-full font-medium transition">Start a Project</button>
 
       <!-- Mobile Menu Button -->
       <button id="mobileMenuBtn" class="md:hidden text-3xl" aria-label="Toggle menu">
@@ -65,7 +65,7 @@
         <a href="#published" class="mobile-nav-link hover:text-cyan-400">Published</a>
         <a href="#about" class="mobile-nav-link hover:text-cyan-400">About</a>
         <a href="#contact" class="mobile-nav-link hover:text-cyan-400">Contact</a>
-        <a href="#contact" class="mobile-nav-link bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-full font-medium text-center mt-4">Start a Project</a>
+        <button type="button" class="open-contact-modal mobile-nav-link bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-full font-medium text-center mt-4">Start a Project</button>
       </div>
     </div>
   </nav>
@@ -81,7 +81,7 @@
           We build practical digital solutions that simplify daily life, education, productivity, and collaboration.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="#contact" class="bg-cyan-500 hover:bg-cyan-400 text-black px-8 py-4 rounded-full font-semibold text-lg transition">Start a Project</a>
+          <button type="button" class="open-contact-modal bg-cyan-500 hover:bg-cyan-400 text-black px-8 py-4 rounded-full font-semibold text-lg transition">Start a Project</button>
           <a href="#published" class="border border-cyan-400 text-cyan-400 px-8 py-4 rounded-full font-semibold text-lg hover:bg-cyan-400 hover:text-black transition">View Published Work</a>
         </div>
       </div>
@@ -279,6 +279,50 @@
     </div>
   </section>
 
+  <!-- Contact Modal -->
+  <div id="contactModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full overflow-hidden">
+      <div class="p-6 text-center border-b border-gray-100">
+        <h3 class="text-xl font-bold text-gray-900">Roque Desouza</h3>
+        <p class="text-sm text-gray-500 mt-1">Founder · Visualixe</p>
+      </div>
+      <div class="p-6 space-y-5">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=visualixefoundation@gmail.com" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 group">
+          <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-envelope text-emerald-600"></i>
+          </div>
+          <div class="text-left">
+            <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Email</p>
+            <p class="text-emerald-600 group-hover:underline font-medium">visualixefoundation@gmail.com</p>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/roque-desouza" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 group">
+          <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+            <i class="fab fa-linkedin-in text-emerald-600"></i>
+          </div>
+          <div class="text-left">
+            <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">LinkedIn</p>
+            <p class="text-emerald-600 group-hover:underline font-medium">linkedin.com/in/roque-desouza</p>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/visualixe_foundation" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 group">
+          <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+            <i class="fab fa-instagram text-emerald-600"></i>
+          </div>
+          <div class="text-left">
+            <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Instagram</p>
+            <p class="text-emerald-600 group-hover:underline font-medium">@visualixe_foundation</p>
+          </div>
+        </a>
+      </div>
+      <div class="border-t border-gray-100 p-4">
+        <button type="button" id="closeContactModal" class="w-full text-emerald-600 font-medium py-2 hover:bg-emerald-50 rounded-xl transition">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-black py-12 border-t border-zinc-800">
     <div class="max-w-7xl mx-auto px-6 text-center text-zinc-500">
@@ -306,11 +350,37 @@
       icon.classList.toggle('fa-times');
     });
 
-    // Auto-close mobile menu when a nav link is tapped
     document.querySelectorAll('.mobile-nav-link').forEach((link) => {
       link.addEventListener('click', () => {
         closeMobileMenu();
       });
+    });
+
+    // Contact Modal
+    const contactModal = document.getElementById('contactModal');
+    const closeContactBtn = document.getElementById('closeContactModal');
+
+    function openContactModal() {
+      contactModal.classList.remove('hidden');
+      contactModal.classList.add('flex');
+      closeMobileMenu();
+    }
+
+    function closeContactModalFn() {
+      contactModal.classList.add('hidden');
+      contactModal.classList.remove('flex');
+    }
+
+    document.querySelectorAll('.open-contact-modal').forEach((btn) => {
+      btn.addEventListener('click', openContactModal);
+    });
+
+    closeContactBtn.addEventListener('click', closeContactModalFn);
+
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) {
+        closeContactModalFn();
+      }
     });
 
     // Contact form → opens Gmail compose with prefilled details

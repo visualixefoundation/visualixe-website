@@ -50,7 +50,7 @@
         <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
       </div>
 
-      <a href="#contact" class="hidden md:block bg-cyan-500 hover:bg-cyan-600 px-6 py-2.5 rounded-full font-medium transition">Start a Project</a>
+      <button type="button" class="open-contact-modal hidden md:block bg-cyan-500 hover:bg-cyan-600 px-6 py-2.5 rounded-full font-medium transition">Start a Project</button>
 
       <!-- Mobile Menu Button -->
       <button id="mobileMenuBtn" class="md:hidden text-3xl" aria-label="Toggle menu">
@@ -65,7 +65,7 @@
         <a href="#published" class="mobile-nav-link hover:text-cyan-400">Published</a>
         <a href="#about" class="mobile-nav-link hover:text-cyan-400">About</a>
         <a href="#contact" class="mobile-nav-link hover:text-cyan-400">Contact</a>
-        <a href="#contact" class="mobile-nav-link bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-full font-medium text-center mt-4">Start a Project</a>
+        <button type="button" class="open-contact-modal mobile-nav-link bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-full font-medium text-center mt-4">Start a Project</button>
       </div>
     </div>
   </nav>
@@ -81,7 +81,7 @@
           We build practical digital solutions that simplify daily life, education, productivity, and collaboration.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="#contact" class="bg-cyan-500 hover:bg-cyan-400 text-black px-8 py-4 rounded-full font-semibold text-lg transition">Start a Project</a>
+          <button type="button" class="open-contact-modal bg-cyan-500 hover:bg-cyan-400 text-black px-8 py-4 rounded-full font-semibold text-lg transition">Start a Project</button>
           <a href="#published" class="border border-cyan-400 text-cyan-400 px-8 py-4 rounded-full font-semibold text-lg hover:bg-cyan-400 hover:text-black transition">View Published Work</a>
         </div>
       </div>
@@ -226,7 +226,7 @@
     <div class="max-w-2xl mx-auto px-6 text-center">
       <h2 class="text-4xl md:text-5xl font-bold mb-4">Let’s build something</h2>
       <p class="text-xl text-zinc-300 mb-10">Reach out via email, LinkedIn, or Instagram</p>
-      <button id="openContactModal" class="inline-flex items-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-10 py-5 rounded-full transition shadow-lg text-lg">
+      <button type="button" id="openContactModal" class="open-contact-modal inline-flex items-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-10 py-5 rounded-full transition shadow-lg text-lg">
         <i class="fas fa-envelope"></i>
         Contact
       </button>
@@ -316,24 +316,29 @@
 
     // Contact Modal
     const contactModal = document.getElementById('contactModal');
-    const openContactBtn = document.getElementById('openContactModal');
     const closeContactBtn = document.getElementById('closeContactModal');
 
-    openContactBtn.addEventListener('click', () => {
+    function openContactModal() {
       contactModal.classList.remove('hidden');
       contactModal.classList.add('flex');
-    });
+      closeMobileMenu();
+    }
 
-    closeContactBtn.addEventListener('click', () => {
+    function closeContactModal() {
       contactModal.classList.add('hidden');
       contactModal.classList.remove('flex');
+    }
+
+    document.querySelectorAll('.open-contact-modal').forEach((btn) => {
+      btn.addEventListener('click', openContactModal);
     });
+
+    closeContactBtn.addEventListener('click', closeContactModal);
 
     // Close modal when clicking outside
     contactModal.addEventListener('click', (e) => {
       if (e.target === contactModal) {
-        contactModal.classList.add('hidden');
-        contactModal.classList.remove('flex');
+        closeContactModal();
       }
     });
   </script>

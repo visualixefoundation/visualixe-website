@@ -1,7 +1,7 @@
-Visualixe Foundation
+# Visualixe Foundation
 
 We build practical digital solutions that simplify daily life, education, productivity, and collaboration.
 
-Check out our website at 👇
+**How it helps you:** Discover tools and projects designed to make everyday tasks easier — from education and productivity to community resources.
 
-https://visualixe-foundation.vercel.app
+**Live site:** https://visualixe-foundation.vercel.app

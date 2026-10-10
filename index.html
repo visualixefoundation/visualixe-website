@@ -192,7 +192,7 @@
           <div class="text-violet-400 mb-2 text-sm font-medium">EDUCATION · EXAM ARCHIVE</div>
           <h3 class="text-2xl font-semibold mb-3">NECTA A-Level Papers</h3>
           <p class="text-zinc-400 mb-6">A running archive of past Advanced Level exam papers for Form V and VI candidates — open or download offline.</p>
-          <a href="https://necta-exams.vercel.app/" target="_blank" rel="noopener noreferrer"
+          <a href="https://advance-archive.vercel.app/" target="_blank" rel="noopener noreferrer"
              class="inline-flex items-center gap-3 bg-violet-600 hover:bg-violet-700 px-6 py-3 rounded-2xl font-medium transition">
             Visit Live Website <i class="fas fa-external-link-alt"></i>
           </a>
@@ -338,41 +338,52 @@
 
     function closeMobileMenu() {
       mobileMenu.classList.add('hidden');
+      const icon = mobileBtn.querySelector('i');
+      icon.classList.add('fa-bars');
+      icon.classList.remove('fa-times');
     }
 
     mobileBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+      const icon = mobileBtn.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
     });
 
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', closeMobileMenu);
+    document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        closeMobileMenu();
+      });
     });
 
     // Contact Modal
     const contactModal = document.getElementById('contactModal');
-    const openButtons = document.querySelectorAll('.open-contact-modal');
-    const closeBtn = document.getElementById('closeContactModal');
+    const closeContactBtn = document.getElementById('closeContactModal');
 
-    openButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        contactModal.classList.remove('hidden');
-        contactModal.classList.add('flex');
-      });
-    });
+    function openContactModal() {
+      contactModal.classList.remove('hidden');
+      contactModal.classList.add('flex');
+      closeMobileMenu();
+    }
 
-    closeBtn.addEventListener('click', () => {
+    function closeContactModalFn() {
       contactModal.classList.add('hidden');
       contactModal.classList.remove('flex');
+    }
+
+    document.querySelectorAll('.open-contact-modal').forEach((btn) => {
+      btn.addEventListener('click', openContactModal);
     });
+
+    closeContactBtn.addEventListener('click', closeContactModalFn);
 
     contactModal.addEventListener('click', (e) => {
       if (e.target === contactModal) {
-        contactModal.classList.add('hidden');
-        contactModal.classList.remove('flex');
+        closeContactModalFn();
       }
     });
 
-    // Contact Form -> Gmail
+    // Contact form → opens Gmail compose with prefilled details
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
 
